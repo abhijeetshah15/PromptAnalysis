@@ -2,13 +2,13 @@ import pandas as pd
 from openai import OpenAI
 
 # 1) Load data from CSV file
-df = pd.read_csv('/Users/Ethan/OSU/2024Winter/CS569/PromptAnalysis/Sampled Data/20230824_101836_issue_sharings.csv')
+df = pd.read_csv('YOUR INPUT FILE PATH')
 
 # Filter the first 10 rows containing only numbers in 'ConversationNumber'
-df_filtered = df[pd.to_numeric(df['ConversationNumber'], errors='coerce').notnull()].head(10)
+df_filtered = df[pd.to_numeric(df['ConversationNumber'], errors='coerce').notnull()]
 
 # 2) Initialize OpenAI client
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "YOUR API KEY"
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Initialize a list to collect new answers
@@ -51,4 +51,4 @@ df_filtered.drop(columns=['Solved/Unsolved'], inplace=True)
 df_filtered.drop(columns=['ConversationNumber', 'Prompts'], inplace=True)
 
 # 3) Save the modified DataFrame to a new CSV file
-df_filtered.to_csv('/Users/Ethan/OSU/2024Winter/CS569/chatAPI/run_1.csv', index=False)
+df_filtered.to_csv('YOUR OUTPUT FILE PATH', index=False)
