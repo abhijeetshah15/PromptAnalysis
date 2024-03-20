@@ -3,9 +3,9 @@ from scipy import stats
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 # Load the CSV file into a DataFrame
-data = pd.read_csv("PromptAnalysis-main/chatGPTAPI/tem07token240/rerun_5.csv")
+data = pd.read_csv("PromptAnalysis-main/chatGPTAPI/tem0token1024/run_1.csv")
 
-# Assuming your CSV file has columns named 'before' and 'after' for the two sets of responses
+# Appending the data into categories "before" and "after"
 before_responses = data['before']
 after_responses = data['after']
 
@@ -30,7 +30,7 @@ print("Paired T-test Results for Sentiment Analysis of Key-Value Pairs:")
 print("T-statistic:", t_statistic)
 print("P-value:", p_value)
 
-# Interpret the p-value
+# Interpreting the p-value
 alpha = 0.05  # significance level
 if p_value < alpha:
     print("Reject the null hypothesis. There is a significant difference in sentiment between before and after responses.")
